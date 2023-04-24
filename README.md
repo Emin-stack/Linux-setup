@@ -48,6 +48,21 @@ $ nix-env -irf env.nix
 
 <br/>
 
+## fish
+```
+curl -L https://get.oh-my.fish | fish
+omf install agnoster
+omf theme agnoster
+```
+
+## fonts
+
+1.) Download a [Nerd Font](http://nerdfonts.com)
+
+2.) Unzip and copy to ~/.fonts
+
+3.) Run the command `fc-cache -fv` to manually rebuild the font cache
+
 ## Setup Vim
 ### [Install vundle](https://github.com/VundleVim/Vundle.vim)
 
