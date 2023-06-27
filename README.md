@@ -1,52 +1,11 @@
 # Linux  Configuration
-## Install nix
+## zsh
+install zimfw
 
-### Install Nix via the recommended multi-user installation:
+```shell
+curl -fsSL https://raw.githubusercontent.com/zimfw/install/master/install.zsh | zsh
 
 ```
-$ sh <(curl -L https://nixos.org/nix/install) --daemon
-```
-
-We recommend the multi-user install if you are on Linux running systemd, with SELinux disabled and you can authenticate with sudo.
-Single-user installation
-
-### Install Nix via the single-user installation:
-
-$ sh <(curl -L https://nixos.org/nix/install) --no-daemon
-
-
-### Which type of installation should you choose?
-
-This depends on your requirements, but here is a short list of reasons why we recommend [multi-user installation](https://nixos.org/manual/nix/stable/installation/multi-user.html): 
-
-Pros
-
-- Better build isolation (and that is what Nix is all about)
-- Better security (a build can not write somewhere in your home)
-- Sharing builds between users
-
-Cons
-
-- Requires $root$ to run the daemon
-- More involved installation (creation of $nixbld* users$, installing a systemd unit, ...
-- Harder to uninstall <br/>
-<br/>
-
-
-After install nix,run this command
-```
-$ export NIX_PATH="$HOME/.nix-defexpr"
-```
-
-Then
-```
-$ nix-env -irf env.nix
-```
-<br/>
-
-***!!! env.nix is not tested***
-
-<br/>
 
 ## fish
 ```
