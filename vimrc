@@ -69,6 +69,54 @@ set cursorline
 " bad habit. The former is enforceable through a .vimrc, while we don't know
 " how to prevent the latter.
 
+
+set nocompatible              " required
+filetype off                  " required
+
+" set the runtime path to include Vundle and initialize
+call plug#begin()
+" The default plugin directory will be as follows:
+"   - Vim (Linux/macOS): '~/.vim/plugged'
+"   - Vim (Windows): '~/vimfiles/plugged'
+"   - Neovim (Linux/macOS/Windows): stdpath('data') . '/plugged'
+" You can specify a custom plugin directory by passing it as the argument
+"   - e.g. `call plug#begin('~/.vim/plugged')`
+"   - Avoid using standard Vim directory names like 'plugin'
+
+" Make sure you use single quotes
+
+" Shorthand notation; fetches https://github.com/junegunn/vim-easy-align
+Plug 'junegunn/vim-easy-align'
+
+Plug 'arcticicestudio/nord-vim'
+Plug 'easymotion/vim-easymotion'
+Plug 'jiangmiao/auto-pairs'
+Plug 'Valloric/YouCompleteMe'
+Plug 'scrooloose/nerdtree'
+Plug 'Xuyuanp/nerdtree-git-plugin', {'on':'NERDTreeToggle'}
+Plug 'skywind3000/vim-auto-popmenu'
+Plug 'skywind3000/vim-dict'
+Plug 'skywind3000/vim-preview'
+Plug 'klen/python-mode'
+Plug 'jmcantrell/vim-virtualenv'
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
+Plug 'scrooloose/nerdcommenter'
+Plug 'mhinz/vim-startify'
+Plug 'kien/rainbow_parentheses.vim'
+Plug 'vim-airline/vim-airline'
+Plug 'yegappan/taglist'
+Plug 'ludovicchabant/vim-gutentags'
+" Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" Plug 'vim-airline/vim-airline-themes'
+
+"Initialize plugin system
+" - Automatically executes `filetype plugin indent on` and `syntax enable`.
+call plug#end()
+" You can revert the settings after the call like so:
+"   filetype indent off   " Disable file-type-specific indentation
+"   syntax off            " Disable syntax highlighting
+
 " === KeyBindings ===
 " ===================
 map <F3> :NERDTreeToggle<CR>
@@ -86,48 +134,6 @@ inoremap <Up>    <ESC>:echoe "Use k"<CR>
 inoremap <Down>  <ESC>:echoe "Use j"<CR>
 " Do this in terminal mode...
 tnoremap <Esc>   <C-w>N<CR>
-
-set nocompatible              " required
-filetype off                  " required
-
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/vundle')
-
-" let Vundle manage Vundle, required
-Plugin 'gmarik/Vundle.vim'
-
-Plugin 'arcticicestudio/nord-vim'
-Plugin 'easymotion/vim-easymotion'
-Plugin 'jiangmiao/auto-pairs'
-Plugin 'Valloric/YouCompleteMe'
-Plugin 'scrooloose/nerdtree'
-Plugin 'Xuyuanp/nerdtree-git-plugin'
-Plugin 'skywind3000/vim-auto-popmenu'
-Plugin 'skywind3000/vim-dict'
-Plugin 'skywind3000/vim-preview'
-Plugin 'klen/python-mode'
-Plugin 'jmcantrell/vim-virtualenv'
-Plugin 'SirVer/ultisnips'
-Plugin 'honza/vim-snippets'
-Plugin 'scrooloose/nerdcommenter'
-Plugin 'mhinz/vim-startify'
-Plugin 'kien/rainbow_parentheses.vim'
-Plugin 'vim-airline/vim-airline'
-Plugin 'yegappan/taglist'
-Plugin 'ludovicchabant/vim-gutentags'
-" Plugin 'neoclide/coc.nvim', {'branch': 'release'}
-" Plugin 'vim-airline/vim-airline-themes'
-
-" Add all your plugins here (note older versions of Vundle used Bundle instead of Plugin)
-
-
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
-filetype plugin indent on    " required
 
 " === YouCompleteMe ===
 " ====================
