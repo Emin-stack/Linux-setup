@@ -91,12 +91,17 @@ Plug 'junegunn/vim-easy-align'
 Plug 'arcticicestudio/nord-vim'
 Plug 'easymotion/vim-easymotion'
 Plug 'jiangmiao/auto-pairs'
+
 Plug 'Valloric/YouCompleteMe'
+Plug 'PaulHaeger/YCM-Generator', { 'branch': 'stable' }
+
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin', {'on':'NERDTreeToggle'}
+
 Plug 'skywind3000/vim-auto-popmenu'
 Plug 'skywind3000/vim-dict'
 Plug 'skywind3000/vim-preview'
+
 Plug 'klen/python-mode'
 Plug 'jmcantrell/vim-virtualenv'
 Plug 'SirVer/ultisnips'
@@ -104,11 +109,11 @@ Plug 'honza/vim-snippets'
 Plug 'scrooloose/nerdcommenter'
 Plug 'mhinz/vim-startify'
 Plug 'kien/rainbow_parentheses.vim'
-Plug 'vim-airline/vim-airline'
 Plug 'yegappan/taglist'
 Plug 'ludovicchabant/vim-gutentags'
-" Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'vim-airline/vim-airline'
 " Plug 'vim-airline/vim-airline-themes'
+" Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 "Initialize plugin system
 " - Automatically executes `filetype plugin indent on` and `syntax enable`.
