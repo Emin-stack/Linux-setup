@@ -73,11 +73,14 @@ nnoremap <Left>  :echoe "Use h"<CR>
 nnoremap <Right> :echoe "Use l"<CR>
 nnoremap <Up>    :echoe "Use k"<CR>
 nnoremap <Down>  :echoe "Use j"<CR>
+nnoremap <C-h>   :term <CR>
 " ...and in insert mode
 inoremap <Left>  <ESC>:echoe "Use h"<CR>
 inoremap <Right> <ESC>:echoe "Use l"<CR>
 inoremap <Up>    <ESC>:echoe "Use k"<CR>
 inoremap <Down>  <ESC>:echoe "Use j"<CR>
+" Do this in terminal mode...
+tnoremap <Esc>   <C-w>N<CR>
 
 set nocompatible              " required
 filetype off                  " required
@@ -93,6 +96,7 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
 
+Plugin 'arcticicestudio/nord-vim'
 Plugin 'easymotion/vim-easymotion'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'Valloric/YouCompleteMe'
@@ -100,8 +104,16 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'skywind3000/vim-auto-popmenu'
 Plugin 'skywind3000/vim-dict'
+Plugin 'klen/python-mode'
+Plugin 'jmcantrell/vim-virtualenv'
+Plugin 'SirVer/ultisnips'
+Plugin 'honza/vim-snippets'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'mhinz/vim-startify'
+Plugin 'kien/rainbow_parentheses.vim'
 Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
+" Plugin 'neoclide/coc.nvim', {'branch': 'release'}
+" Plugin 'vim-airline/vim-airline-themes'
 
 " Add all your plugins here (note older versions of Vundle used Bundle instead of Plugin)
 
@@ -152,3 +164,17 @@ set completeopt=menu,menuone,noselect
 " 禁止在下方显示一些啰嗦的提示
 set shortmess+=c
 "
+" coc.nvim settings
+" Use `[g` and `]g` to navigate diagnostics
+" Use `:CocDiagnostics` to get all diagnostics of current buffer in location list
+" nmap <silent> [g <Plug>(coc-diagnostic-prev)
+" nmap <silent> ]g <Plug>(coc-diagnostic-next)
+
+" GoTo code navigation
+" nmap <silent> gd <Plug>(coc-definition)
+" nmap <silent> gy <Plug>(coc-type-definition)
+" nmap <silent> gi <Plug>(coc-implementation)
+" nmap <silent> gr <Plug>(coc-references)
+
+" Use K to show documentation in preview window
+" nnoremap <silent> K :call ShowDocumentation()<CR>
