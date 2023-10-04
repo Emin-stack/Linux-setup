@@ -68,6 +68,11 @@ set cursorline
 " for movement, rather than using more efficient movement commands, is also a
 " bad habit. The former is enforceable through a .vimrc, while we don't know
 " how to prevent the latter.
+
+" === KeyBindings ===
+" ===================
+map <F3> :NERDTreeToggle<CR>
+map <F2> :TlistToggle<CR>
 " Do this in normal mode...
 nnoremap <Left>  :echoe "Use h"<CR>
 nnoremap <Right> :echoe "Use l"<CR>
@@ -85,7 +90,6 @@ tnoremap <Esc>   <C-w>N<CR>
 set nocompatible              " required
 filetype off                  " required
 
-"  git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
@@ -104,6 +108,7 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'skywind3000/vim-auto-popmenu'
 Plugin 'skywind3000/vim-dict'
+Plugin 'skywind3000/vim-preview'
 Plugin 'klen/python-mode'
 Plugin 'jmcantrell/vim-virtualenv'
 Plugin 'SirVer/ultisnips'
@@ -112,6 +117,8 @@ Plugin 'scrooloose/nerdcommenter'
 Plugin 'mhinz/vim-startify'
 Plugin 'kien/rainbow_parentheses.vim'
 Plugin 'vim-airline/vim-airline'
+Plugin 'yegappan/taglist'
+Plugin 'ludovicchabant/vim-gutentags'
 " Plugin 'neoclide/coc.nvim', {'branch': 'release'}
 " Plugin 'vim-airline/vim-airline-themes'
 
@@ -122,6 +129,8 @@ Plugin 'vim-airline/vim-airline'
 call vundle#end()            " required
 filetype plugin indent on    " required
 
+" === YouCompleteMe ===
+" ====================
 let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
 let g:ycm_add_preview_to_completeopt = 0
 let g:ycm_show_diagnostics_ui = 0
@@ -133,6 +142,10 @@ let g:ycm_key_invoke_completion = '<c-z>'
 set completeopt=menu,menuone
 
 noremap <c-z> <NOP>
+nnoremap gd :YcmCompleter GoToDefinitionElseDeclaration<CR>
+nnoremap g/ :YcmCompleter GetDoc<CR>
+nnoremap gt :YcmCompleter GetType<CR>
+nnoremap gr :YcmCompleter GoToReferences<CR>
 " 换行的时候可以自动跳到下一行
 imap {<CR> {<CR>}<ESC>O
 
@@ -163,8 +176,33 @@ set completeopt=menu,menuone,noselect
 
 " 禁止在下方显示一些啰嗦的提示
 set shortmess+=c
-"
-" coc.nvim settings
+
+" === NERDTree ===
+" ================
+let g:NERDTreeWinPos = "left"
+
+" === TagList ===
+" ===============
+let Tlist_Use_Right_Window   = 1
+
+" === CTags ===
+" ===============
+set tags=./.tags;,.tags
+
+" === Cscope ===
+" ===============
+" cscope -Rbkq
+" : cs add ./cscope.out # 添加 cscope.out
+" ：cs find s ---- 查找C语言符号，即查找函数名、宏、枚举值等出现的地方
+" ：cs find g ---- 查找函数、宏、枚举等定义的位置，类似ctags所提供的功能
+" ：cs find d ---- 查找本函数调用的函数
+" ：cs find c ---- 查找调用本函数的函数
+" ：cs find t: ---- 查找指定的字符串
+" ：cs find e ---- -查找egrep模式，相当于egrep功能，但查找速度快多了
+" ：cs find f ----- 查找并打开文件，类似vim的find功能
+
+" === coc.nvim settings ===
+" =========================
 " Use `[g` and `]g` to navigate diagnostics
 " Use `:CocDiagnostics` to get all diagnostics of current buffer in location list
 " nmap <silent> [g <Plug>(coc-diagnostic-prev)
@@ -178,3 +216,23 @@ set shortmess+=c
 
 " Use K to show documentation in preview window
 " nnoremap <silent> K :call ShowDocumentation()<CR>
+
+" gutentags 搜索工程目录的标志，碰到这些文件/目录名就停止向上一级目录递归
+let g:gutentags_project_root = ['.root', '.svn', '.git', '.hg', '.project']
+"
+" " 所生成的数据文件的名称
+let g:gutentags_ctags_tagfile = '.tags'
+"
+"" 将自动生成的 tags 文件全部放入 ~/.cache/tags 目录中，避免污染工程目录
+let s:vim_tags = expand('~/.cache/tags')
+let g:gutentags_cache_dir = s:vim_tags
+
+" 配置 ctags 的参数
+let g:gutentags_ctags_extra_args = ['--fields=+niazS', '--extra=+q']
+let g:gutentags_ctags_extra_args += ['--c++-kinds=+px']
+let g:gutentags_ctags_extra_args += ['--c-kinds=+px']
+"
+"" 检测 ~/.cache/tags 不存在就新建
+if !isdirectory(s:vim_tags)
+    silent! call mkdir(s:vim_tags, 'p')
+endif
