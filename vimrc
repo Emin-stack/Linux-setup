@@ -141,7 +141,7 @@ inoremap <Down>  <ESC>:echoe "Use j"<CR>
 tnoremap <Esc>   <C-w>N<CR>
 
 " === YouCompleteMe ===
-" ====================
+" =====================
 let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
 let g:ycm_add_preview_to_completeopt = 0
 let g:ycm_show_diagnostics_ui = 0
@@ -150,6 +150,11 @@ let g:ycm_min_num_identifier_candidate_chars = 2
 let g:ycm_collect_identifiers_from_comments_and_strings = 1
 let g:ycm_complete_in_strings=1
 let g:ycm_key_invoke_completion = '<c-z>'
+
+" https://www.ditig.com/256-colors-cheat-sheet
+highlight PMenu ctermfg=0 ctermbg=242 guifg=black guibg=darkgrey
+highlight PMenuSel ctermfg=242 ctermbg=8 guifg=darkgrey guibg=black
+
 set completeopt=menu,menuone
 
 noremap <c-z> <NOP>
