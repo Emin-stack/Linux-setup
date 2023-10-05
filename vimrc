@@ -91,6 +91,7 @@ Plug 'junegunn/vim-easy-align'
 Plug 'arcticicestudio/nord-vim'
 Plug 'easymotion/vim-easymotion'
 Plug 'jiangmiao/auto-pairs'
+Plug 'Yggdroot/LeaderF', { 'do': ':LeaderfInstallCExtension' }
 
 Plug 'Valloric/YouCompleteMe'
 Plug 'PaulHaeger/YCM-Generator', { 'branch': 'stable' }
@@ -140,6 +141,10 @@ inoremap <Down>  <ESC>:echoe "Use j"<CR>
 " Do this in terminal mode...
 tnoremap <Esc>   <C-w>N<CR>
 
+" === LeaderF ===
+" ===============
+let g:Lf_WindowPosition = 'popup'
+
 " === YouCompleteMe ===
 " =====================
 let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
@@ -160,7 +165,7 @@ set completeopt=menu,menuone
 noremap <c-z> <NOP>
 nnoremap gd :YcmCompleter GoToDefinitionElseDeclaration<CR>
 nnoremap g/ :YcmCompleter GetDoc<CR>
-nnoremap gt :YcmCompleter GetType<CR>
+" nnoremap gt :YcmCompleter GetType<CR>
 nnoremap gr :YcmCompleter GoToReferences<CR>
 " 换行的时候可以自动跳到下一行
 imap {<CR> {<CR>}<ESC>O
