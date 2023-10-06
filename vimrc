@@ -72,6 +72,8 @@ set cursorline
 
 set nocompatible              " required
 filetype off                  " required
+set clipboard=unnamedplus
+set clipboard+=unnamed
 
 " set the runtime path to include Vundle and initialize
 call plug#begin()
@@ -127,6 +129,7 @@ call plug#end()
 " ===================
 map <F3> :NERDTreeToggle<CR>
 map <F2> :TlistToggle<CR>
+nmap <leader>D <plug>(YCMHover)
 " Do this in normal mode...
 nnoremap <Left>  :echoe "Use h"<CR>
 nnoremap <Right> :echoe "Use l"<CR>
