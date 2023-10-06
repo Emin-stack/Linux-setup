@@ -77,6 +77,9 @@ set clipboard+=unnamed
 
 " set the runtime path to include Vundle and initialize
 call plug#begin()
+" Install vim-plug:
+" curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+"
 " The default plugin directory will be as follows:
 "   - Vim (Linux/macOS): '~/.vim/plugged'
 "   - Vim (Windows): '~/vimfiles/plugged'
