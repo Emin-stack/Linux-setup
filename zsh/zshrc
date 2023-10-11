@@ -133,7 +133,7 @@ source ~/.config/zsh/vi.zsh
 
 
 # zim config path
-export ZIM_CONFIG_FILE=~/.config/zsh/zimrc
+# export ZIM_CONFIG_FILE=~/.config/zsh/zimrc
 
 eval "$(thefuck --alias)"
 
