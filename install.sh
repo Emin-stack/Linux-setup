@@ -31,11 +31,11 @@ elif [ "$OS_TYPE" = "Linux" ]; then
             # Ubuntu
             printf "\e[92mInstall tools on Ubuntu\e[0m\n"
             sudo apt-get update
-            sudo apt-get install build-essential vim tmux ranger man gcc-doc gdb git libreadline-dev libsdl2-dev llvm llvm-dev llvm-11 llvm-11-dev
+            sudo apt-get install -y build-essential vim tmux ranger man gcc-doc gdb git libreadline-dev libsdl2-dev llvm llvm-dev llvm-11 llvm-11-dev ufw net-tools htop tree python3 curl unzip vnstat python3-distutils python-is-python3
         elif [ "$ID" = "fedora" ]; then
             # Fedora
             printf "\e[92mInstall tools on Fedora\e[0m\n"
-            sudo dnf install zsh vim tmux ranger gcc gcc-c++ gdb git readline-devel SDL2-devel llvm llvm-devel
+            sudo dnf install -y zsh vim tmux ranger gcc gcc-c++ gdb git readline-devel SDL2-devel llvm llvm-devel
         elif [ "$ID" = "arch" ]; then
             printf "\e[92mInstall tools on Arch\e[0m\n"
             sudo pacman -S --needed base-devel vim tmux ranger man gdb git readline libsdl2 llvm clang

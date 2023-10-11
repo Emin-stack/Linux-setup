@@ -12,11 +12,12 @@ Or if desired, you can continue to review the settings for each tool below
 ## Install tools 
 Ubuntu
 ```shell
-apt-get install build-essential vim tmux ranger man gcc-doc gdb git libreadline-dev libsdl2-dev llvm llvm-dev llvm-11 llvm-11-dev
+apt-get install -y build-essential vim tmux ranger man gcc-doc gdb git libreadline-dev libsdl2-dev llvm llvm-dev llvm-11 llvm-11-dev ufw net-tools htop tree python3 curl unzip vnstat python3-distutils python-is-python3
+
 ```
 Fedora
 ```shell
-dnf install zsh vim tmux ranger gcc gcc-c++ gdb git readline-devel SDL2-devel llvm llvm-devel
+dnf install -y zsh vim tmux ranger curl unzip htop tree gcc gcc-c++ gdb git readline-devel SDL2-devel llvm llvm-devel
 ```
 
 ## Zsh
