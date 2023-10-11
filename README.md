@@ -70,7 +70,8 @@ open vim and run `:PlugInstall`
 
 ### choose [neovim](https://github.com/Emin-stack/nvim)
 ```shell
-git clone https://github.com/Emin-stack/nvim.git ~/.config/nvim
+    git submodule update --init --recursive
+    SETUP_DIR="$(pwd)" && ln -s $SCRIPT_DIR/nvim ~/.config/nvim
 ```
 
 ## Tmux
