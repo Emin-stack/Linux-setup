@@ -118,6 +118,9 @@ Plug 'kien/rainbow_parentheses.vim'
 Plug 'yegappan/taglist'
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'vim-airline/vim-airline'
+Plug 'Yggdroot/indentLine'
+Plug 'crusoexia/vim-monokai'
+Plug 'luochen1990/rainbow'
 " Plug 'vim-airline/vim-airline-themes'
 " Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
@@ -263,3 +266,5 @@ let g:gutentags_ctags_extra_args += ['--c-kinds=+px']
 if !isdirectory(s:vim_tags)
     silent! call mkdir(s:vim_tags, 'p')
 endif
+
+colo monokai
