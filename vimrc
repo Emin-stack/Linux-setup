@@ -268,3 +268,6 @@ if !isdirectory(s:vim_tags)
 endif
 
 colo monokai
+
+let &termencoding=&encoding
+set fileencodings=utf-8,gbk,gb18030,gb2312,big5
