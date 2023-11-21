@@ -121,6 +121,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'Yggdroot/indentLine'
 Plug 'crusoexia/vim-monokai'
 Plug 'luochen1990/rainbow'
+Plug 'voldikss/vim-floaterm'
 " Plug 'vim-airline/vim-airline-themes'
 " Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
@@ -141,7 +142,8 @@ nnoremap <Left>  :echoe "Use h"<CR>
 nnoremap <Right> :echoe "Use l"<CR>
 nnoremap <Up>    :echoe "Use k"<CR>
 nnoremap <Down>  :echoe "Use j"<CR>
-nnoremap <C-h>   :term <CR>
+" nnoremap <C-h>   :term <CR>
+nnoremap <C-h>   :FloatermToggle<CR>
 " ...and in insert mode
 inoremap <Left>  <ESC>:echoe "Use h"<CR>
 inoremap <Right> <ESC>:echoe "Use l"<CR>
@@ -149,10 +151,12 @@ inoremap <Up>    <ESC>:echoe "Use k"<CR>
 inoremap <Down>  <ESC>:echoe "Use j"<CR>
 " Do this in terminal mode...
 tnoremap <Esc>   <C-w>N<CR>
+tnoremap <C-h>   :FloatermToggle<CR>
 
 " === LeaderF ===
 " ===============
 let g:Lf_WindowPosition = 'popup'
+map <leader>ff :Leaderf rg<CR>
 
 " === YouCompleteMe ===
 " =====================
@@ -207,6 +211,10 @@ set completeopt=menu,menuone,noselect
 " 禁止在下方显示一些啰嗦的提示
 set shortmess+=c
 
+" === FloatTerm ===
+" ================
+let g:floaterm_width=0.7
+let g:floaterm_height=0.8
 " === NERDTree ===
 " ================
 let g:NERDTreeWinPos = "left"
