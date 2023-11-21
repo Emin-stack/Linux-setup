@@ -144,6 +144,7 @@ nnoremap <Up>    :echoe "Use k"<CR>
 nnoremap <Down>  :echoe "Use j"<CR>
 " nnoremap <C-h>   :term <CR>
 nnoremap <C-h>   :FloatermToggle<CR>
+nnoremap <C-i>   :FloatermNew --height=1.0 --width=1.0 lazygit <CR>
 " ...and in insert mode
 inoremap <Left>  <ESC>:echoe "Use h"<CR>
 inoremap <Right> <ESC>:echoe "Use l"<CR>
