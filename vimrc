@@ -133,7 +133,7 @@ call plug#end()
 
 " === KeyBindings ===
 " ===================
-map <F3> :NERDTreeToggle<CR>
+map <leader>e :NERDTreeToggle<CR>
 map <F2> :TlistToggle<CR>
 nmap <leader>D <plug>(YCMHover)
 " Do this in normal mode...
