@@ -280,3 +280,7 @@ colo monokai
 
 let &termencoding=&encoding
 set fileencodings=utf-8,gbk,gb18030,gb2312,big5
+
+set tabstop=4
+set smartindent
+set shiftwidth=4
