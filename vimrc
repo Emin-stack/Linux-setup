@@ -104,6 +104,7 @@ Plug 'PaulHaeger/YCM-Generator', { 'branch': 'stable' }
 
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin', {'on':'NERDTreeToggle'}
+Plug 'ryanoasis/vim-devicons'
 
 Plug 'skywind3000/vim-auto-popmenu'
 Plug 'skywind3000/vim-dict'
@@ -140,7 +141,6 @@ call plug#end()
 
 " === KeyBindings ===
 " ===================
-map <leader>e :NERDTreeToggle<CR>
 map <F2> :TlistToggle<CR>
 nmap <leader>D <plug>(YCMHover)
 " Files search
@@ -163,8 +163,8 @@ tnoremap <C-h>   :FloatermToggle<CR>
 
 " === which-key.vim ===
 " ===============
-let g:which_key_timeout = 50
-set timeoutlen=50
+let g:which_key_timeout = 100
+set timeoutlen=100
 let g:mapleader = "\<Space>"
 call which_key#register('<Space>', "g:which_key_map")
 nnoremap <silent> <leader> :silent <c-u> :silent WhichKey '<Space>'<CR>
@@ -172,6 +172,8 @@ vnoremap <silent> <leader> :silent <c-u> :silent WhichKeyVisual '<Space>'<CR>
 let g:which_key_sep = '→'
 let g:which_key_map = {}
 let g:which_key_map['q'] = [ ':q!', 'quit Neovim without saving' ]
+let g:which_key_map['e'] = [ ':NERDTreeToggle', 'toggle NERDTree' ]
+let g:which_key_map['n'] = [ ':NERDTreeFocus' , 'focus  NERDTree' ]
 let g:which_key_map['w'] = {
       \ 'name' : '+windows' ,
       \ 'w' : ['<C-W>w'     , 'other-window']          ,
