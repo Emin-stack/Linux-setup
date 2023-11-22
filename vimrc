@@ -158,7 +158,7 @@ inoremap <Right> <ESC>:echoe "Use l"<CR>
 inoremap <Up>    <ESC>:echoe "Use k"<CR>
 inoremap <Down>  <ESC>:echoe "Use j"<CR>
 " Do this in terminal mode...
-tnoremap <Esc>   <C-w>N<CR>
+tnoremap <Space><Esc>   <C-w>N<CR>
 tnoremap <C-h>   :FloatermToggle<CR>
 
 " === which-key.vim ===
