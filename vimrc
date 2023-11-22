@@ -94,9 +94,10 @@ call plug#begin()
 Plug 'junegunn/vim-easy-align'
 
 Plug 'arcticicestudio/nord-vim'
+Plug 'ghifarit53/tokyonight-vim'
 Plug 'easymotion/vim-easymotion'
 Plug 'jiangmiao/auto-pairs'
-Plug 'Yggdroot/LeaderF', { 'do': ':LeaderfInstallCExtension' }
+" Plug 'Yggdroot/LeaderF', { 'do': ':LeaderfInstallCExtension' }
 
 Plug 'Valloric/YouCompleteMe'
 Plug 'PaulHaeger/YCM-Generator', { 'branch': 'stable' }
@@ -121,7 +122,12 @@ Plug 'vim-airline/vim-airline'
 Plug 'Yggdroot/indentLine'
 Plug 'crusoexia/vim-monokai'
 Plug 'luochen1990/rainbow'
+
 Plug 'voldikss/vim-floaterm'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+Plug 'liuchengxu/vim-which-key'
+
 " Plug 'vim-airline/vim-airline-themes'
 " Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
@@ -137,6 +143,7 @@ call plug#end()
 map <leader>e :NERDTreeToggle<CR>
 map <F2> :TlistToggle<CR>
 nmap <leader>D <plug>(YCMHover)
+" Files search
 " Do this in normal mode...
 nnoremap <Left>  :echoe "Use h"<CR>
 nnoremap <Right> :echoe "Use l"<CR>
@@ -154,11 +161,52 @@ inoremap <Down>  <ESC>:echoe "Use j"<CR>
 tnoremap <Esc>   <C-w>N<CR>
 tnoremap <C-h>   :FloatermToggle<CR>
 
-" === LeaderF ===
+" === which-key.vim ===
 " ===============
-let g:Lf_WindowPosition = 'popup'
-map <leader>ff :Leaderf rg<CR>
+let g:which_key_timeout = 50
+set timeoutlen=50
+let g:mapleader = "\<Space>"
+call which_key#register('<Space>', "g:which_key_map")
+nnoremap <silent> <leader> :silent <c-u> :silent WhichKey '<Space>'<CR>
+vnoremap <silent> <leader> :silent <c-u> :silent WhichKeyVisual '<Space>'<CR>
+let g:which_key_sep = '→'
+let g:which_key_map = {}
+let g:which_key_map['q'] = [ ':q!', 'quit Neovim without saving' ]
+let g:which_key_map['w'] = {
+      \ 'name' : '+windows' ,
+      \ 'w' : ['<C-W>w'     , 'other-window']          ,
+      \ 'd' : ['<C-W>c'     , 'delete-window']         ,
+      \ '-' : ['<C-W>s'     , 'split-window-below']    ,
+      \ '|' : ['<C-W>v'     , 'split-window-right']    ,
+      \ '2' : ['<C-W>v'     , 'layout-double-columns'] ,
+      \ 'h' : ['<C-W>h'     , 'window-left']           ,
+      \ 'j' : ['<C-W>j'     , 'window-below']          ,
+      \ 'l' : ['<C-W>l'     , 'window-right']          ,
+      \ 'k' : ['<C-W>k'     , 'window-up']             ,
+      \ 'H' : ['<C-W>5<'    , 'expand-window-left']    ,
+      \ 'J' : [':resize +5'  , 'expand-window-below']   ,
+      \ 'L' : ['<C-W>5>'    , 'expand-window-right']   ,
+      \ 'K' : [':resize -5'  , 'expand-window-up']      ,
+      \ '=' : ['<C-W>='     , 'balance-window']        ,
+      \ 's' : ['<C-W>s'     , 'split-window-below']    ,
+      \ 'v' : ['<C-W>v'     , 'split-window-below']    ,
+      \ '?' : ['Windows'    , 'fzf-window']            ,
+      \ }
 
+let g:which_key_map['f'] = {
+      \ 'name' : '+Search' ,
+      \ 'f' : [':Files'     , 'search files']          	,
+      \ 't' : [':Rg'        , 'Rg search text']			,
+      \ 'a' : [':Ag'        , 'Ag search text']			,
+      \ 'r' : [':History'   , 'search recent files'] 	,
+	  \ 'k' : [':Maps'      , 'search keymapping'] 		,
+	  \ 'c' : [':Command'   , 'search commands'] 		,
+	  \ 'h' : [':Helptags'  , 'search helptags'] 		,
+	  \ 'g' : [':Tags'  	, 'search tags'] 			,
+	  \ 'e' : [':Changes'  	, 'search changes'] 		,
+	  \ 'm' : [':Marks'  	, 'search marks'] 			,
+	  \ 'w' : [':Windows'  	, 'search windows'] 		,
+      \ }
 " === YouCompleteMe ===
 " =====================
 let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
@@ -276,7 +324,13 @@ if !isdirectory(s:vim_tags)
     silent! call mkdir(s:vim_tags, 'p')
 endif
 
-colo monokai
+" colo monokai
+set termguicolors
+
+let g:tokyonight_style = 'night' " available: night, storm
+let g:tokyonight_enable_italic = 1
+
+colorscheme tokyonight
 
 let &termencoding=&encoding
 set fileencodings=utf-8,gbk,gb18030,gb2312,big5
