@@ -68,7 +68,7 @@ fi
 
 # Install zimfw for zsh
 curl -fsSL https://ghproxy.com/https://raw.githubusercontent.com/zimfw/install/master/install.zsh | zsh
-ln -s $SCRIPT_DIR/zimrc ~/.zimrc
+ln -sf $SCRIPT_DIR/zimrc ~/.zimrc
 zimfw install
 
 cat <<EOF >> ~/.zshrc
@@ -80,8 +80,8 @@ alias python='python3'
 
 # The plugin will auto execute this zvm_after_init function
 zvm_after_init() {
-  source "$FZF_SHELL_PATH"/key-bindings.zsh
-  source "$FZF_SHELL_PATH"/completion.zsh
+  source $FZF_SHELL_PATH/key-bindings.zsh
+  source $FZF_SHELL_PATH/completion.zsh
 }
 
 g_proxy() {
@@ -111,7 +111,7 @@ else
 # Install vim-plug and YouCompleteMe for Vim
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
     https://ghproxy.com/https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-ln -s $SCRIPT_DIR/vimrc ~/.vimrc
+ln -sf $SCRIPT_DIR/vimrc ~/.vimrc
 vim +PlugInstall +qall
 # You can also follow the YCM installation instructions separately.
 cd ~/.vim/plugged/YouCompleteMe
@@ -122,7 +122,7 @@ fi
 # Install Tmux and plugins
 git clone https://ghproxy.com/https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 bash ~/.tmux/plugins/tpm/bin/install_plugins
-ln -s $SCRIPT_DIR/tmux.conf ~/.tmux.conf
+ln -sf $SCRIPT_DIR/tmux.conf ~/.tmux.conf
 
 # Install ranger plugins
 ranger --copy-config=all
