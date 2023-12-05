@@ -26,7 +26,11 @@ if [ "$OS_TYPE" = "Darwin" ]; then
     # 在这里添加macOS特定的命令
 elif [ "$OS_TYPE" = "Linux" ]; then
     if [ -f /etc/os-release ]; then
-        source /etc/os-release
+		if [ -z "$ID" ]; then
+			source /etc/os-release
+		else
+			printf "\e[92mThe ID is :$ID \e[0m\n"
+		fi
         if [ "$ID" = "ubuntu" ]; then
             # Ubuntu
             printf "\e[92mInstall tools on Ubuntu\e[0m\n"
@@ -45,7 +49,7 @@ elif [ "$OS_TYPE" = "Linux" ]; then
             sudo dnf install -y zsh vim tmux ranger gcc gcc-c++ gdb git readline-devel SDL2-devel llvm llvm-devel lazygit
         elif [ "$ID" = "arch" ]; then
             printf "\e[92mInstall tools on Arch\e[0m\n"
-            sudo pacman -S --needed base-devel vim tmux ranger man gdb git readline libsdl2 llvm clang lazygit
+            sudo pacman -S --needed base-devel vim tmux ranger man gdb git readline sdl2 llvm clang lazygit cmake gcc python3 zsh
         else
             printf "\e[91mFail to recognize this OS!!!\e[0m"
             exit 1
