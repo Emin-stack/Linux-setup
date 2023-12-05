@@ -21,7 +21,7 @@ if [ "$OS_TYPE" = "Darwin" ]; then
     # echo "This is macOS"
     printf "\e[92mInstall tools on macOS\e[0m\n"
     xcode-select --install
-    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    /bin/bash -c "$(curl -fsSL https://ghproxy.com/https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
     brew install vim tmux ranger man gdb git readline sdl2 llvm
     # 在这里添加macOS特定的命令
 elif [ "$OS_TYPE" = "Linux" ]; then
@@ -54,7 +54,7 @@ fi
 
 
 # Install zimfw for zsh
-curl -fsSL https://raw.githubusercontent.com/zimfw/install/master/install.zsh | zsh
+curl -fsSL https://ghproxy.com/https://raw.githubusercontent.com/zimfw/install/master/install.zsh | zsh
 ln -s $SCRIPT_DIR/zimrc ~/.zimrc
 zimfw install
 
@@ -70,7 +70,7 @@ if [ "$USE_NVIM" -eq 1 ]; then
 else
 # Install vim-plug and YouCompleteMe for Vim
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
-    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    https://ghproxy.com/https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 ln -s $SCRIPT_DIR/vimrc ~/.vimrc
 vim +PlugInstall +qall
 # You can also follow the YCM installation instructions separately.
@@ -80,7 +80,7 @@ fi
 
 
 # Install Tmux and plugins
-git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+git clone https://ghproxy.com/https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 bash ~/.tmux/plugins/tpm/bin/install_plugins
 ln -s $SCRIPT_DIR/tmux.conf ~/.tmux.conf
 
@@ -102,7 +102,7 @@ echo 'map yn oscyank name' >> ~/.config/ranger/rc.conf
 echo 'map y. oscyank name_without_extension' >> ~/.config/ranger/rc.conf
 # ranger-zshz
 export ZSHZ_SRC=~/.zim/modules/zsh-z/zsh-z.plugin.zsh
-git clone https://github.com/rc2dev/ranger-zshz.git ~/.config/ranger/plugins/zsh_z
+git clone https://ghproxy.com/https://github.com/rc2dev/ranger-zshz.git ~/.config/ranger/plugins/zsh_z
 # ranger-tmux
 # pip install ranger-tmux
 # python -m ranger_tmux install
