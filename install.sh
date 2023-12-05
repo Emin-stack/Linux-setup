@@ -31,14 +31,19 @@ elif [ "$OS_TYPE" = "Linux" ]; then
             # Ubuntu
             printf "\e[92mInstall tools on Ubuntu\e[0m\n"
             sudo apt-get update
-            sudo apt-get install -y build-essential cmake vim tmux ranger man gcc-doc gdb git libreadline-dev libsdl2-dev llvm llvm-dev llvm-11 llvm-11-dev ufw net-tools htop tree python3 python3-dev curl unzip vnstat python3-distutils python-is-python3
+            sudo apt-get install -y build-essential cmake universal-ctags cscope vim tmux ranger man gcc-doc gdb git libreadline-dev libsdl2-dev llvm llvm-dev llvm-11 llvm-11-dev ufw net-tools htop tree python3 python3-dev curl unzip vnstat python3-distutils python-is-python3
+			LAZYGIT_VERSION=$(curl -s "https://api.github.com/repos/jesseduffield/lazygit/releases/latest" | grep -Po '"tag_name": "v\K[^"]*')
+			curl -Lo lazygit.tar.gz "https://github.com/jesseduffield/lazygit/releases/latest/download/lazygit_${LAZYGIT_VERSION}_Linux_x86_64.tar.gz"
+			tar xf lazygit.tar.gz lazygit
+			sudo install lazygit /usr/local/bin
         elif [ "$ID" = "fedora" ]; then
             # Fedora
             printf "\e[92mInstall tools on Fedora\e[0m\n"
-            sudo dnf install -y zsh vim tmux ranger gcc gcc-c++ gdb git readline-devel SDL2-devel llvm llvm-devel
+			sudo dnf copr enable atim/lazygit -y
+            sudo dnf install -y zsh vim tmux ranger gcc gcc-c++ gdb git readline-devel SDL2-devel llvm llvm-devel lazygit
         elif [ "$ID" = "arch" ]; then
             printf "\e[92mInstall tools on Arch\e[0m\n"
-            sudo pacman -S --needed base-devel vim tmux ranger man gdb git readline libsdl2 llvm clang
+            sudo pacman -S --needed base-devel vim tmux ranger man gdb git readline libsdl2 llvm clang lazygit
         else
             printf "\e[91mFail to recognize this OS!!!\e[0m"
             exit 1
