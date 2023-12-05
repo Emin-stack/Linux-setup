@@ -334,6 +334,7 @@ let g:tokyonight_enable_italic = 1
 
 colorscheme tokyonight
 
+set encoding=utf-8
 let &termencoding=&encoding
 set fileencodings=utf-8,gbk,gb18030,gb2312,big5
 
