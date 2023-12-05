@@ -22,8 +22,8 @@ if [ "$OS_TYPE" = "Darwin" ]; then
     printf "\e[92mInstall tools on macOS\e[0m\n"
     xcode-select --install
     /bin/bash -c "$(curl -fsSL https://ghproxy.com/https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-    brew install vim tmux ranger man gdb git readline sdl2 llvm
-    # 在这里添加macOS特定的命令
+    brew install vim tmux ranger man gdb git readline sdl2 llvm fzf
+	FZF_SHELL_PATH=/opt/homebrew/opt/fzf/shell
 elif [ "$OS_TYPE" = "Linux" ]; then
     if [ -f /etc/os-release ]; then
 		if [ -z "$ID" ]; then
@@ -42,6 +42,7 @@ elif [ "$OS_TYPE" = "Linux" ]; then
 			sudo install lazygit /usr/local/bin
 			rm lazigit 
 			rm lazygit.tar.gz
+			FZF_SHELL_PATH=/usr/share/doc/fzf/examples
         elif [ "$ID" = "fedora" ]; then
             # Fedora
             printf "\e[92mInstall tools on Fedora\e[0m\n"
@@ -49,7 +50,8 @@ elif [ "$OS_TYPE" = "Linux" ]; then
             sudo dnf install -y zsh vim tmux ranger gcc gcc-c++ gdb git readline-devel SDL2-devel llvm llvm-devel lazygit
         elif [ "$ID" = "arch" ]; then
             printf "\e[92mInstall tools on Arch\e[0m\n"
-            sudo pacman -S --needed base-devel vim tmux ranger man gdb git readline sdl2 llvm clang lazygit cmake gcc python3 zsh
+            sudo pacman -S --needed base-devel vim tmux ranger man gdb git readline sdl2 llvm clang lazygit cmake gcc python3 zsh fzf ctags cscope
+			FZF_SHELL_PATH=/usr/share/fzf
         else
             printf "\e[91mFail to recognize this OS!!!\e[0m"
             exit 1
@@ -68,6 +70,33 @@ fi
 curl -fsSL https://ghproxy.com/https://raw.githubusercontent.com/zimfw/install/master/install.zsh | zsh
 ln -s $SCRIPT_DIR/zimrc ~/.zimrc
 zimfw install
+
+cat <<EOF >> ~/.zshrc
+alias lg='lazygit'
+alias ra='ranger'
+# alias vim='nvim'
+# alias vi='nvim'
+alias python='python3'
+
+# The plugin will auto execute this zvm_after_init function
+zvm_after_init() {
+  source "$FZF_SHELL_PATH"/key-bindings.zsh
+  source "$FZF_SHELL_PATH"/completion.zsh
+}
+
+g_proxy() {
+  export http_proxy="http://127.0.0.1:20171"
+  # export http_proxy="socks5://127.0.0.1:20170"
+  export https_proxy="http://127.0.0.1:20171"
+  # export https_proxy="socks5://127.0.0.1:20170"
+}
+
+unproxy() {
+  unset http_proxy
+  unset https_proxy
+}
+EOF
+
 
 # Install fish shell and agnoster theme
 # curl -L https://get.oh-my.fish | fish
@@ -118,3 +147,4 @@ git clone https://ghproxy.com/https://github.com/rc2dev/ranger-zshz.git ~/.confi
 # pip install ranger-tmux
 # python -m ranger_tmux install
 
+zsh
