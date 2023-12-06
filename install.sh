@@ -89,6 +89,7 @@ g_proxy() {
   # export http_proxy="socks5://127.0.0.1:20170"
   export https_proxy="http://127.0.0.1:20171"
   # export https_proxy="socks5://127.0.0.1:20170"
+  export all_proxy=socks5://127.0.0.1:20170
 }
 
 unproxy() {
