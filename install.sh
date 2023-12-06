@@ -40,7 +40,7 @@ elif [ "$OS_TYPE" = "Linux" ]; then
 			curl -Lo lazygit.tar.gz "https://github.com/jesseduffield/lazygit/releases/latest/download/lazygit_${LAZYGIT_VERSION}_Linux_x86_64.tar.gz"
 			tar xf lazygit.tar.gz lazygit
 			sudo install lazygit /usr/local/bin
-			rm lazigit 
+			rm lazygit
 			rm lazygit.tar.gz
 			FZF_SHELL_PATH=/usr/share/doc/fzf/examples
         elif [ "$ID" = "fedora" ]; then
