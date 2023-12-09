@@ -8,4 +8,4 @@ tar xf lazygit.tar.gz lazygit
 sudo install lazygit /usr/local/bin
 rm lazygit
 rm lazygit.tar.gz
-FZF_SHELL_PATH=/usr/share/doc/fzf/examples
+export FZF_SHELL_PATH=/usr/share/doc/fzf/examples
