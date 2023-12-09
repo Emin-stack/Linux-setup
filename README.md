@@ -74,3 +74,8 @@ Use Ctrl+j for instruction escape.
 ```shell
     bash utils/ranger/install.sh
 ```
+
+## Uninstall
+```shell
+    bash uninstall.sh
+```
