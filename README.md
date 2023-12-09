@@ -3,48 +3,37 @@
 You can use the shell script to setup the environment quickly.
 
 ```shell
-sh install.sh 
+bash install.sh
 # or choose neovim
-# sh install.sh USE_NVIM=1 
+# bash install.sh USE_NVIM=1
 ```
 Or if desired, you can continue to review the settings for each tool below
 
 ## Install tools 
 Ubuntu
 ```shell
-apt-get install -y build-essential vim tmux ranger man gcc-doc gdb git libreadline-dev libsdl2-dev llvm llvm-dev llvm-11 llvm-11-dev ufw net-tools htop tree python3 curl unzip vnstat python3-distutils python-is-python3
-
+    bash \*nix/ubuntu/install.sh
 ```
 Fedora
 ```shell
-dnf install -y zsh vim tmux ranger curl unzip htop tree gcc gcc-c++ gdb git readline-devel SDL2-devel llvm llvm-devel
+    bash \*nix/fedora/install.sh
+```
+Arch Linux
+```shell
+    bash \*nix/archlinux/install.sh
 ```
 
 ## Zsh
 Install zimfw
 
 ```shell
-curl -fsSL https://raw.githubusercontent.com/zimfw/install/master/install.zsh | zsh
-
-```
-
-Then link zimrc to ~/.zimrc
-```shell
-SETUP_DIR="$(pwd)" && ln -s $SETUP_DIR/zsh/zimrc ~/.zimrc
-zimfw install
-```
-Link zshrc and zsh config to
-```shell
-SETUP_DIR="$(pwd)" && ln -s $SETUP_DIR/zsh/zshrc ~/.zshrc
-ln -s $SETUP_DIR/zsh ~/.config/zsh
+    bash utils/zsh/install.sh
 ```
 
 ## Fish
 Install fish
-```
-curl -L https://get.oh-my.fish | fish
-omf install agnoster
-omf theme agnoster
+```shell
+    bash utils/fish/install.sh
 ```
 
 ## Fonts
@@ -57,28 +46,25 @@ omf theme agnoster
 
 ## Vim
 
-### Install vim-plug
 ```shell
-curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
-    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    bash utils/vim/install.sh
 ```
-Then link vimrc to ~/.vimrc
-```shell
-SETUP_DIR="$(pwd)" && ln -s $SETUP_DIR/vimrc ~/.vimrc
-```
-open vim and run `:PlugInstall`
-#### Install [YCM](https://github.com/ycm-core/YouCompleteMe)
+
+#### [YCM](https://github.com/ycm-core/YouCompleteMe)
 
 ### choose [neovim](https://github.com/Emin-stack/nvim)
 ```shell
     git submodule update --init --recursive
-    SETUP_DIR="$(pwd)" && ln -s $SCRIPT_DIR/nvim ~/.config/nvim
+    ln -s utils/nvim ~/.config/nvim
 ```
 
 ## Tmux
 Use Ctrl+j for instruction escape.
 ```shell
-git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
-bash ~/.tmux/plugins/tpm/bin/install_plugins
-SETUP_DIR="$(pwd)" && ln -s $SETUP_DIR/tmux.conf ~/.tmux.conf
+    bash utils/tmux/install.sh
+```
+
+## Ranger
+```shell
+    bash utils/ranger/install.sh
 ```
