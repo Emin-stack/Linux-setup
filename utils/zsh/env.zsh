@@ -1,9 +1,3 @@
-alias lg='lazygit'
-alias ra='ranger'
-# alias vim='nvim'
-# alias vi='nvim'
-alias python='python3'
-
 # The plugin will auto execute this zvm_after_init function
 zvm_after_init() {
   source $FZF_SHELL_PATH/key-bindings.zsh

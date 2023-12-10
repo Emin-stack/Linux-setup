@@ -9,4 +9,5 @@ zimfw install
 
 echo "FZF_SHELL_PATH=$FZF_SHELL_PATH" >> ~/.zshrc
 echo "source ~/.zsh/env.zsh" >> ~/.zshrc
+echo "source ~/.zsh/aliases.zsh" >> ~/.zshrc
 
