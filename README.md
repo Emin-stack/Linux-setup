@@ -10,10 +10,9 @@ bash install.sh
 Or if desired, you can continue to review the settings for each tool below
 
 ## Install tools 
-export this scripts path first before you run following scripts!!!
+Export this scripts path first before you run following scripts!!!
 ```shell
-    export SCRIPT_DIR="$(pwd)"
-    export UTILS_SCRIPT_DIR=$SCRIPT_DIR/utils
+    bash env.sh
 ```
 
 Ubuntu
