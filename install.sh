@@ -1,8 +1,8 @@
 #!/bin/bash
 
-bash env.sh
-OS_TYPE=$(uname -s)
+source env.sh
 
+OS_TYPE=$(uname -s)
 USE_NVIM=0
 # 检查是否有外部输入，如果有，解析格式为 "USE_NVIM=value" 的输入
 if [ -n "$1" ]; then
