@@ -1,5 +1,5 @@
 #!/bin/bash
-ZSHRC_DIR=$UTILS_SCRIPT_DIR/utils/zsh
+ZSHRC_DIR=$UTILS_SCRIPT_DIR/zsh
 printf "\e[92mzshrc path: $ZSHRC_DIR\e[0m\n"
 # Install zimfw for zsh
 curl -fsSL https://mirror.ghproxy.com/https://raw.githubusercontent.com/zimfw/install/master/install.zsh | zsh

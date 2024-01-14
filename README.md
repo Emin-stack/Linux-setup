@@ -12,7 +12,7 @@ Or if desired, you can continue to review the settings for each tool below
 ## Install tools 
 Export this scripts path first before you run following scripts!!!
 ```shell
-    bash env.sh
+    source env.sh
 ```
 
 Ubuntu
