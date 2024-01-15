@@ -4,7 +4,8 @@
 # docker run -it -p 5901:5901 -p 6789:22 --gpus all -v /mnt:/mnt --name ubuntu ubuntu
 
 apt-get update
-apt-get install xorg openbox locales xfce4 xfce4-goodies xfce4-terminal vim git wget net-tools tightvncserver
+apt-get -y install xorg openbox locales xfce4 xfce4-goodies xfce4-terminal vim git wget net-tools tightvncserver
+apt-get -y install xvfb xfonts-100dpi xfonts-75dpi xfonts-cyrillic xorg dbus-x11
 echo "*background: #000000" > /root/.Xresources
 echo "*foreground: #FFFFFF" >> /root/.Xresources
 
