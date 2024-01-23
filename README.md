@@ -12,33 +12,33 @@ Or if desired, you can continue to review the settings for each tool below
 ## Install tools 
 Export this scripts path first before you run following scripts!!!
 ```shell
-    source env.sh
+source env.sh
 ```
 
 Ubuntu
 ```shell
-    bash \*nix/ubuntu/install.sh
+bash \*nix/ubuntu/install.sh
 ```
 Fedora
 ```shell
-    bash \*nix/fedora/install.sh
+bash \*nix/fedora/install.sh
 ```
 Arch Linux
 ```shell
-    bash \*nix/archlinux/install.sh
+bash \*nix/archlinux/install.sh
 ```
 
 ## Zsh
 Install zimfw
 
 ```shell
-    bash utils/zsh/install.sh
+bash utils/zsh/install.sh
 ```
 
 ## Fish
 Install fish
 ```shell
-    bash utils/fish/install.sh
+bash utils/fish/install.sh
 ```
 
 ## Fonts
@@ -52,29 +52,29 @@ Install fish
 ## Vim
 
 ```shell
-    bash utils/vim/install.sh
+bash utils/vim/install.sh
 ```
 
 #### [YCM](https://github.com/ycm-core/YouCompleteMe)
 
 ### choose [neovim](https://github.com/Emin-stack/nvim)
 ```shell
-    git submodule update --init --recursive
-    ln -s utils/nvim ~/.config/nvim
+git submodule update --init --recursive
+ln -s `pwd`/utils/nvim ~/.config/nvim
 ```
 
 ## Tmux
 Use Ctrl+j for instruction escape.
 ```shell
-    bash utils/tmux/install.sh
+bash utils/tmux/install.sh
 ```
 
 ## Ranger
 ```shell
-    bash utils/ranger/install.sh
+bash utils/ranger/install.sh
 ```
 
 ## Uninstall
 ```shell
-    bash uninstall.sh
+bash uninstall.sh
 ```
