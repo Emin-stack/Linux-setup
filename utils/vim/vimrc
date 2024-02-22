@@ -153,12 +153,12 @@ nmap <leader>D <plug>(YCMHover)
 
 map  f <Plug>(easymotion-bd-f)
 nmap f <Plug>(easymotion-overwin-f)
-map r <Plug>(easymotion-repeat)
+map  r <Plug>(easymotion-repeat)
 " s{char}{char} to move to {char}{char}
 nmap s <Plug>(easymotion-overwin-f2)
 
-map / <Plug>(incsearch-easymotion-/)
-map ? <Plug>(incsearch-easymotion-?)
+map  / <Plug>(incsearch-easymotion-/)
+map  ? <Plug>(incsearch-easymotion-?)
 " map gz/ <Plug>(incsearch-easymotion-stay)
 " Files search
 " Do this in normal mode...
@@ -167,7 +167,7 @@ nnoremap <Right> :echoe "Use l"<CR>
 nnoremap <Up>    :echoe "Use k"<CR>
 nnoremap <Down>  :echoe "Use j"<CR>
 " nnoremap <C-h>   :term <CR>
-nnoremap <C-h>   :FloatermToggle<CR>
+nnoremap <m-o>   :FloatermToggle<CR>
 nnoremap <C-i>   :FloatermNew --height=1.0 --width=1.0 lazygit <CR>
 " ...and in insert mode
 inoremap <Left>  <ESC>:echoe "Use h"<CR>
@@ -175,8 +175,8 @@ inoremap <Right> <ESC>:echoe "Use l"<CR>
 inoremap <Up>    <ESC>:echoe "Use k"<CR>
 inoremap <Down>  <ESC>:echoe "Use j"<CR>
 " Do this in terminal mode...
-tnoremap <C-q>   <C-w>N<CR>
-tnoremap <C-h>   :FloatermToggle<CR>
+tnoremap <m-n>   <C-w>N<CR>
+tnoremap <m-o>   :FloatermToggle<CR>
 
 " === which-key.vim ===
 " ===============
@@ -193,23 +193,24 @@ let g:which_key_map['e'] = [ ':NERDTreeToggle', 'toggle NERDTree' ]
 let g:which_key_map['n'] = [ ':NERDTreeFocus' , 'focus  NERDTree' ]
 let g:which_key_map['w'] = {
       \ 'name' : '+windows' ,
-      \ 'w' : ['<C-W>w'     , 'other-window']          ,
-      \ 'd' : ['<C-W>c'     , 'delete-window']         ,
-      \ '-' : ['<C-W>s'     , 'split-window-below']    ,
-      \ '|' : ['<C-W>v'     , 'split-window-right']    ,
-      \ '2' : ['<C-W>v'     , 'layout-double-columns'] ,
-      \ 'h' : ['<C-W>h'     , 'window-left']           ,
-      \ 'j' : ['<C-W>j'     , 'window-below']          ,
-      \ 'l' : ['<C-W>l'     , 'window-right']          ,
-      \ 'k' : ['<C-W>k'     , 'window-up']             ,
-      \ 'H' : ['<C-W>5<'    , 'expand-window-left']    ,
-      \ 'J' : [':resize +5'  , 'expand-window-below']   ,
-      \ 'L' : ['<C-W>5>'    , 'expand-window-right']   ,
-      \ 'K' : [':resize -5'  , 'expand-window-up']      ,
-      \ '=' : ['<C-W>='     , 'balance-window']        ,
-      \ 's' : ['<C-W>s'     , 'split-window-below']    ,
-      \ 'v' : ['<C-W>v'     , 'split-window-below']    ,
-      \ '?' : ['Windows'    , 'fzf-window']            ,
+      \ 'w' : ['<C-W>w'     , 'other-window']            ,
+      \ 'd' : ['<C-W>c'     , 'delete-window']           ,
+      \ '-' : ['<C-W>s'     , 'split-window-below']      ,
+      \ '|' : ['<C-W>v'     , 'split-window-right']      ,
+      \ '2' : ['<C-W>v'     , 'layout-double-columns']   ,
+      \ 'h' : ['<C-W>h'     , 'window-left']             ,
+      \ 'j' : ['<C-W>j'     , 'window-below']            ,
+      \ 'l' : ['<C-W>l'     , 'window-right']            ,
+      \ 'k' : ['<C-W>k'     , 'window-up']               ,
+      \ 'H' : ['<C-W>5<'    , 'expand-window-left']      ,
+      \ 'J' : [':resize +5' , 'expand-window-below']     ,
+      \ 'L' : ['<C-W>5>'    , 'expand-window-right']     ,
+      \ 'K' : [':resize -5' , 'expand-window-up']        ,
+      \ 'p' : ['PreviewTag' , 'PreviewTag in new window'],
+      \ '=' : ['<C-W>='     , 'balance-window']          ,
+      \ 's' : ['<C-W>s'     , 'split-window-below']      ,
+      \ 'v' : ['<C-W>v'     , 'split-window-below']      ,
+      \ '?' : ['Windows'    , 'fzf-window']              ,
       \ }
 
 let g:which_key_map['f'] = {
