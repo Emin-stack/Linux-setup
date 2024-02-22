@@ -146,3 +146,4 @@ zvm_after_init() {
 }
 
 export RANGER_LOAD_DEFAULT_RC=FALSE
+eval "$(zoxide init zsh)"
