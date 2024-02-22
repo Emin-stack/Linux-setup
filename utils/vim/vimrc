@@ -95,7 +95,12 @@ Plug 'junegunn/vim-easy-align'
 
 Plug 'arcticicestudio/nord-vim'
 Plug 'ghifarit53/tokyonight-vim'
+
 Plug 'easymotion/vim-easymotion'
+Plug 'haya14busa/incsearch.vim'
+Plug 'haya14busa/incsearch-fuzzy.vim'
+Plug 'haya14busa/incsearch-easymotion.vim'
+
 Plug 'jiangmiao/auto-pairs'
 " Plug 'Yggdroot/LeaderF', { 'do': ':LeaderfInstallCExtension' }
 
@@ -130,6 +135,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'liuchengxu/vim-which-key'
 
 Plug 'airblade/vim-gitgutter'
+Plug 'knubie/vim-kitty-navigator'
 " Plug 'vim-airline/vim-airline-themes'
 " Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
