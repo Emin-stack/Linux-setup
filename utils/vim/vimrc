@@ -242,7 +242,9 @@ let g:which_key_map['m'] = {
 			\ }
 let g:which_key_map['p'] = {
 			\ 'name' : '+Preview' ,
-			\ 'p' : [':PreviewTag', 'Preview tags under cursor'],
+			\ 't' : [':PreviewTag', 'Preview tags under cursor'],
+			\ 'f' : [':PreviewQuickfix [linenr]', 'Preview Quickfix'],
+			\ 's' : [':PreviewSignature[!] [function name]', 'Preview Signature'],
 			\ 'q' : [':PreviewClose', 'Close Preview'],
 			\ }
 
