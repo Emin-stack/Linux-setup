@@ -150,6 +150,16 @@ call plug#end()
 " ===================
 map <F2> :TlistToggle<CR>
 nmap <leader>D <plug>(YCMHover)
+
+map  f <Plug>(easymotion-bd-f)
+nmap f <Plug>(easymotion-overwin-f)
+map r <Plug>(easymotion-repeat)
+" s{char}{char} to move to {char}{char}
+nmap s <Plug>(easymotion-overwin-f2)
+
+map / <Plug>(incsearch-easymotion-/)
+map ? <Plug>(incsearch-easymotion-?)
+" map gz/ <Plug>(incsearch-easymotion-stay)
 " Files search
 " Do this in normal mode...
 nnoremap <Left>  :echoe "Use h"<CR>
@@ -216,6 +226,13 @@ let g:which_key_map['f'] = {
 	  \ 'm' : [':Marks'  	, 'search marks'] 			,
 	  \ 'w' : [':Windows'  	, 'search windows'] 		,
       \ }
+let g:which_key_map['m'] = {
+			\ 'name' : '+easymotion' ,
+			\ 'l' : ['<Plug>(easymotion-overwin-line)', 'Move to line(overwin)'],
+			\ 'L' : ['<Plug>(easymotion-bd-jk)', 'Move to line'],
+			\ 'w' : ['<Plug>(easymotion-bd-w)', 'Move to word'],
+			\ 'W' : ['<Plug>(easymotion-bd-overwin-w)', 'Move to word(overwin)'],
+			\ }
 " === YouCompleteMe ===
 " =====================
 let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
@@ -268,6 +285,20 @@ set completeopt=menu,menuone,noselect
 
 " 禁止在下方显示一些啰嗦的提示
 set shortmess+=c
+
+" === insearch easymotion ===
+" ==========================
+" incsearch.vim x fuzzy x vim-easymotion
+
+function! s:config_easyfuzzymotion(...) abort
+  return extend(copy({
+  \   'converters': [incsearch#config#fuzzy#converter()],
+  \   'modules': [incsearch#config#easymotion#module()],
+  \   'keymap': {"\<CR>": '<Over>(easymotion)'},
+  \   'is_expr': 0,
+  \   'is_stay': 1
+  \ }), get(a:, 1, {}))
+endfunction
 
 " === FloatTerm ===
 " ================
