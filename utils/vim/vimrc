@@ -178,6 +178,13 @@ inoremap <Down>  <ESC>:echoe "Use j"<CR>
 tnoremap <m-n>   <C-w>N<CR>
 tnoremap <m-o>   :FloatermToggle<CR>
 
+" === vim-preview ===
+" ===================
+noremap <m-u> :PreviewScroll -1<cr>
+noremap <m-d> :PreviewScroll +1<cr>
+inoremap <m-u> <c-\><c-o>:PreviewScroll -1<cr>
+inoremap <m-d> <c-\><c-o>:PreviewScroll +1<cr>
+
 " === which-key.vim ===
 " ===============
 let g:which_key_timeout = 100
@@ -206,7 +213,6 @@ let g:which_key_map['w'] = {
       \ 'J' : [':resize +5' , 'expand-window-below']     ,
       \ 'L' : ['<C-W>5>'    , 'expand-window-right']     ,
       \ 'K' : [':resize -5' , 'expand-window-up']        ,
-      \ 'p' : ['PreviewTag' , 'PreviewTag in new window'],
       \ '=' : ['<C-W>='     , 'balance-window']          ,
       \ 's' : ['<C-W>s'     , 'split-window-below']      ,
       \ 'v' : ['<C-W>v'     , 'split-window-below']      ,
@@ -214,7 +220,7 @@ let g:which_key_map['w'] = {
       \ }
 
 let g:which_key_map['f'] = {
-      \ 'name' : '+Search' ,
+      \ 'name' : '+search' ,
       \ 'f' : [':Files'     , 'search files']          	,
       \ 't' : [':Rg'        , 'Rg search text']			,
       \ 'a' : [':Ag'        , 'Ag search text']			,
@@ -234,6 +240,12 @@ let g:which_key_map['m'] = {
 			\ 'w' : ['<Plug>(easymotion-bd-w)', 'Move to word'],
 			\ 'W' : ['<Plug>(easymotion-bd-overwin-w)', 'Move to word(overwin)'],
 			\ }
+let g:which_key_map['p'] = {
+			\ 'name' : '+Preview' ,
+			\ 'p' : [':PreviewTag', 'Preview tags under cursor'],
+			\ 'q' : [':PreviewClose', 'Close Preview'],
+			\ }
+
 " === YouCompleteMe ===
 " =====================
 let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
