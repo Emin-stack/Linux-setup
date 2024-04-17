@@ -125,6 +125,7 @@ Plug 'kien/rainbow_parentheses.vim'
 Plug 'yegappan/taglist'
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 Plug 'Yggdroot/indentLine'
 Plug 'crusoexia/vim-monokai'
 Plug 'luochen1990/rainbow'
@@ -137,7 +138,8 @@ Plug 'liuchengxu/vim-which-key'
 Plug 'airblade/vim-gitgutter'
 Plug 'knubie/vim-kitty-navigator'
 Plug 'github/copilot.vim'
-" Plug 'vim-airline/vim-airline-themes'
+Plug 'rhysd/accelerated-jk'
+Plug 'rose-pine/vim'
 " Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 "Initialize plugin system
@@ -149,6 +151,9 @@ call plug#end()
 
 " === KeyBindings ===
 " ===================
+nmap j <Plug>(accelerated_jk_gj_position)
+nmap k <Plug>(accelerated_jk_gk_position)
+
 map <F2> :TlistToggle<CR>
 nmap <leader>D <plug>(YCMHover)
 
@@ -196,6 +201,7 @@ nnoremap <silent> <leader> :silent <c-u> :silent WhichKey '<Space>'<CR>
 vnoremap <silent> <leader> :silent <c-u> :silent WhichKeyVisual '<Space>'<CR>
 let g:which_key_sep = '→'
 let g:which_key_map = {}
+let g:which_key_map['H'] = [ 'zt', 'Move current line to the top' ]
 let g:which_key_map['q'] = [ ':q!', 'quit Neovim without saving' ]
 let g:which_key_map['e'] = [ ':NERDTreeToggle', 'toggle NERDTree' ]
 let g:which_key_map['n'] = [ ':NERDTreeFocus' , 'focus  NERDTree' ]
@@ -383,10 +389,14 @@ endif
 " colo monokai
 set termguicolors
 
-let g:tokyonight_style = 'night' " available: night, storm
-let g:tokyonight_enable_italic = 1
+set background=light
+colorscheme rosepine_dawn
+let g:airline_theme='solarized'
+let g:airline_solarized_bg='light'
 
-colorscheme tokyonight
+" colorscheme tokyonight
+" let g:tokyonight_style = 'night' " available: night, storm
+" let g:tokyonight_enable_italic = 1
 
 set encoding=utf-8
 let &termencoding=&encoding
